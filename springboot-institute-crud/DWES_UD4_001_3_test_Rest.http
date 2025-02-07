@@ -1,0 +1,136 @@
+###
+## create
+POST http://localhost:8090/api/v1/alumnos HTTP/1.1
+Content-Type: application/json
+
+{
+    "dni": "11111111A",
+    "nombre": "Alumno 1 añadido",
+    "edad": 18,
+    "ciclo": "DAM",
+    "erasmus": false
+}
+###
+## "errorCode": "STUDENT_CREATE_VALIDATION"
+POST http://localhost:8091/api/v1/alumnos HTTP/1.1
+Content-Type: application/json
+
+{
+    "dni": "5A",
+    "nombre": "Alumno incorrecto",
+    "edad": 5,
+    "ciclo": "D",
+    "curso": 12,
+    "erasmus": false
+}
+
+###
+## "errorCode": "STUDENT_ALREADY_EXIST"
+POST http://localhost:8091/api/v1/alumnos HTTP/1.1
+Content-Type: application/json
+
+{
+    "dni": "11111111A",
+    "nombre": "Alumno 1 DNI repetido",
+    "edad": 18,
+    "ciclo": "DAM",
+    "erasmus": false
+}
+
+
+###
+##  read
+GET http://localhost:8091/api/v1/alumnos/11111111A HTTP/1.1
+Content-Type: application/json
+###
+##  "errorCode": "DNI_FORMAT_INVALID"
+GET http://localhost:8091/api/v1/alumnos/1A HTTP/1.1
+Content-Type: application/json
+###
+##  "errorCode": "STUDENT_NOT_FOUND"
+GET http://localhost:8091/api/v1/alumnos/22222222A HTTP/1.1
+Content-Type: application/json
+
+
+###
+##  update
+PUT  http://localhost:8091/api/v1/alumnos/11111111A HTTP/1.1
+Content-Type: application/json
+
+{
+    "dni": "11111111A",
+    "nombre": "Alumno 1 modificado",
+    "edad": 18,
+    "ciclo": "DAM",
+    "erasmus": false
+}
+ 
+###
+##  "errorCode": "STUDENT_UPDATE_VALIDATION"
+PUT  http://localhost:8091/api/v1/alumnos/11111111A HTTP/1.1
+Content-Type: application/json
+
+{
+    "dni": "1A",
+    "nombre": "Al1",
+    "edad": 18,
+    "ciclo": "DAM",
+    "erasmus": false
+ }
+ 
+###
+##  "errorCode": "STUDENT_DNI_MISMATCH"
+PUT  http://localhost:8091/api/v1/alumnos/11111111A HTTP/1.1
+Content-Type: application/json
+
+{
+    "dni": "22222222A",
+    "nombre": "Alumno 1 modificado",
+    "edad": 18,
+    "ciclo": "DAM",
+    "erasmus": false
+ }
+ 
+###
+##  "errorCode": "STUDENT_NOT_FOUND_FOR_UPDATE"
+PUT  http://localhost:8091/api/v1/alumnos/33333333A HTTP/1.1
+Content-Type: application/json
+
+{
+    "dni": "33333333A",
+    "nombre": "Alumno 1 modificado",
+    "edad": 18,
+    "ciclo": "DAM",
+    "erasmus": false
+ }
+
+
+
+###
+## delete
+DELETE  http://localhost:8091/api/v1/alumnos/11111111A HTTP/1.1
+Content-Type: application/json
+###
+## delete cuando ya no existe
+DELETE  http://localhost:8091/api/v1/alumnos/11111111A HTTP/1.1
+Content-Type: application/json
+###
+## "errorCode": "DNI_FORMAT_INVALID"
+DELETE  http://localhost:8091/api/v1/alumnos/1A HTTP/1.1
+Content-Type: application/json
+
+
+###
+## create con Clave Ajena que no se encuentra en la BD
+POST http://localhost:8091/api/v1/alumnos HTTP/1.1
+Content-Type: application/json
+
+{
+    "dni": "22222222A",
+    "nombre": "Alumno 2",
+    "edad": 18,
+    "ciclo": "DAW",
+    "curso":1,
+    "erasmus": false
+ }
+ 

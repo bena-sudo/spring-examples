@@ -1,0 +1,25 @@
+package edu.alumno.joan.api_rest_bd_futbol.model.db;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Entity
+@Table(name= "equipos")
+public class EquipoNombreDb {
+    @Id
+    @Size(min=3, message = "El id tiene un tamaño mínimo de 3")
+    private String id;
+    @Size(min = 10, max = 40, message="El nombre largo debe de tener un tamaño entre 10 y 40 caracteres")
+    @Column(name = "nombrelargo")
+    private String nombreLargo;
+    private Long ciudad;
+}

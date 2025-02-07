@@ -1,0 +1,40 @@
+###
+## nuevo incorrecto
+POST http://localhost:8090/auth/nuevo HTTP/1.1
+Content-Type: application/json
+
+{
+  "nickname": "prueba",
+  "email": "@",
+  "password": "a",
+  "roles": ["ROLE_ADMIN"]
+}
+
+###
+## crear nuevo usuario pedro ok
+POST http://localhost:8090/auth/nuevo HTTP/1.1
+Content-Type: application/json
+
+{
+  "nickname": "pedro",
+  "nombre": "Alumno Pedro",
+  "email": "pedro.alumno@gmail.com",
+  "password": "NoTeLoDigo@1",
+  "roles": ["ROLE_USER"]
+}
+
+###
+## login ok
+POST http://localhost:8090/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "nickname": "pedro",
+  "password": "NoTeLoDigo@1"
+}
+
+###
+## getAllPorteros con JWT
+GET http://localhost:8090/api/v1/porteros HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwZWRybyIsImlhdCI6MTczNzY0NDkzOSwiZXhwIjoxNzM3NjgwOTM5fQ.F87MYqZh0o7lZV05aVpUKROaPrVHMG838O5f0bmQIEA

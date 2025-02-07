@@ -1,0 +1,112 @@
+## getCiudadesList
+GET http://localhost:8090/api/v1/ciudades HTTP/1.1
+Content-Type: application/json
+###
+## getCiudadesListOrderByName
+GET http://localhost:8090/api/v1/ciudades/orden/desc HTTP/1.1
+Content-Type: application/json
+###
+## getCiudadInfoById
+GET http://localhost:8090/api/v1/ciudades/56/info HTTP/1.1
+Content-Type: application/json
+###
+## getCiudadesByNombreContainngListOrderByName
+GET http://localhost:8090/api/v1/ciudades/nombre/Val/orden/desc HTTP/1.1
+Content-Type: application/json
+###
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades HTTP/1.1
+Content-Type: application/json
+###
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades?size=5 HTTP/1.1
+Content-Type: application/json
+###
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades?sort=nombre,desc&page=1&size=5 HTTP/1.1
+Content-Type: application/json
+###
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades?nombre=Val&page=0&size=10 HTTP/1.1
+Content-Type: application/json
+###
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades?sort=nombre,asc&nombre=Val&page=0&size=10 HTTP/1.1
+Content-Type: application/json
+###
+## getAllCiudades
+GET  http://localhost:8090/api/v1/ciudades?sort=habitantes,asc&sort=id,asc&page=4&size10 HTTP/1.1
+Content-Type: application/json
+###
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades?sort=habitantes,asc&sort=id,asc&page=4&size=10 HTTP/1.1 
+Content-Type: application/json
+###
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades?sort=habitantes,asc&sort=id&page=4&size=10 HTTP/1.1
+Content-Type: application/json
+###
+
+
+## getAllEquipos
+GET http://localhost:8090/api/v1/equipos HTTP/1.1
+Content-Type: application/json
+###
+
+## getAllJugadores
+GET http://localhost:8090/api/v1/jugadores HTTP/1.1
+Content-Type: application/json
+###
+
+## getAllPorteros
+GET http://localhost:8090/api/v1/porteros HTTP/1.1
+Content-Type: application/json
+###
+
+## comprobarLogin OK
+POST http://localhost:8090/api/usuarios/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "nickname":"joserra",
+    "password": "Passwordjoserra@1"
+}
+###
+
+## getUsuariosInfo
+GET http://localhost:8090/api/usuarios/byNickname/joserra HTTP/1.1
+Content-Type: application/json
+###
+
+## getAllJugadores
+GET http://localhost:8090/api/v1/jugadores?sort=idEquipo,asc&sort=dorsal,asc&page=0&size=10 HTTP/1.1
+Content-Type: application/json
+###
+
+## getAllJugadores
+GET http://localhost:8090/api/v1/jugadores?filter=idEquipo:val&sort=idEquipo,asc&sort=dorsal,asc&page=0&size=10 HTTP/1.1
+Content-Type: application/json
+###
+
+## getAllJugadores
+GET http://localhost:8090/api/v1/jugadores?filter=idEquipo:val&filter=sueldo>4000000&sort=idEquipo,asc&sort=dorsal,asc&page=0&size=10 HTTP/1.1
+Content-Type: application/json
+###
+
+
+
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades?filter=nombre:Burgos HTTP/1.1
+Content-Type: application/json
+###
+
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades?sort=id,asc&sort=habitantes,asc&page=0&size=10 HTTP/1.1
+Content-Type: application/json
+###
+
+## getAllCiudades
+GET http://localhost:8090/api/v1/ciudades?filter=nombre:B&sort=id,asc&sort=habitantes,asc&page=0&size=10 HTTP/1.1
+Content-Type: application/json
+###
+
